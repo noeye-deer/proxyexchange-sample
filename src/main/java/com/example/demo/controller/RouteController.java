@@ -26,7 +26,7 @@ public class RouteController {
             return WebClient
                     .builder()
                     .exchangeStrategies(exchangeStrategies)
-                    .baseUrl("https://github.com/")
+                    .baseUrl("https://spring.io/")
                     .build()
                     .get()
                     .uri(path)
@@ -35,7 +35,7 @@ public class RouteController {
             return WebClient
                     .builder()
                     .exchangeStrategies(exchangeStrategies)
-                    .baseUrl("https://github.com/")
+                    .baseUrl("https://spring.io/)
                     .build()
                     .post()
                     .uri(path)
