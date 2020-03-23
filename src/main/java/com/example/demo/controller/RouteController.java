@@ -18,14 +18,9 @@ public class RouteController {
     public Mono<String> proxy(ServerHttpRequest request, ServerHttpResponse response, ProxyExchange<byte[]> proxy) throws Exception {
         String path = proxy.path("/");
         
-        ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
-                .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(1024 * 1024 * 10)).build();
-        
-        
         if (request.getMethodValue().startsWith("GET")) {
             return WebClient
                     .builder()
-                    .exchangeStrategies(exchangeStrategies)
                     .baseUrl("https://spring.io/")
                     .build()
                     .get()
@@ -34,7 +29,6 @@ public class RouteController {
         } else {
             return WebClient
                     .builder()
-                    .exchangeStrategies(exchangeStrategies)
                     .baseUrl("https://spring.io/)
                     .build()
                     .post()
